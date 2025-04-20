@@ -1,0 +1,442 @@
+/* === Modern Global Styles === */
+:root {
+  /* Color Palette (Dark Gray & Yellow Theme) */
+  --primary-color: #F59E0B; /* Amber-500 (Yellow) */
+  --primary-dark: #D97706; /* Amber-600 (Darker Yellow/Orange) */
+  --secondary-color: #9CA3AF; /* Gray-400 (Lighter Gray for secondary text/elements) */
+  --light-bg: #111827; /* Gray-900 (Very Dark Gray/Near Black Background) */
+  --dark-text: #F9FAFB; /* Gray-50 (Very Light Gray/Off-White Text) */
+  --light-text: #111827; /* Gray-900 (Dark text for light buttons like yellow) */
+  --border-color: #374151; /* Gray-700 (Border for cards/inputs) */
+  --card-bg: #1F2937; /* Gray-800 (Slightly lighter dark background for cards) */
+  --success-color: #10B981; /* Emerald-500 (Keep or adjust if needed) */
+  --danger-color: #EF4444; /* Red-500 (Keep or adjust if needed) */
+  /* Add a specific text color for primary buttons if needed */
+  --primary-button-text: #1F2937; /* Dark text on yellow buttons */
+
+  /* Layout & Spacing */
+  --container-width: 1140px; /* Original width */
+  --spacing-unit: 1rem; /* 16px */
+  --navbar-height: 65px;
+
+  /* Borders & Shadows */
+  --border-radius: 8px;
+  --box-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --box-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* Transitions */
+  --transition-fast: all 0.2s ease-in-out;
+  --transition-std: all 0.3s ease-in-out;
+}
+
+/* === Base Styles === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  background-color: var(--light-bg); /* Will now be dark */
+  color: var(--dark-text); /* Will now be light */
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+  padding-top: var(--navbar-height); /* Offset content below fixed navbar */
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding-left: var(--spacing-unit);
+  padding-right: var(--spacing-unit);
+}
+
+a {
+  color: var(--primary-color); /* Will now be yellow */
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-dark); /* Will now be darker yellow */
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: calc(var(--spacing-unit) * 0.75);
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+h1 { font-size: 2.25rem; } /* 36px */
+h2 { font-size: 1.875rem; } /* 30px */
+h3 { font-size: 1.5rem; } /* 24px */
+h4 { font-size: 1.25rem; } /* 20px */
+
+p {
+  margin-bottom: var(--spacing-unit);
+}
+
+/* === Utility Classes === */
+.page-container {
+  padding-top: calc(var(--spacing-unit) * 2);
+  padding-bottom: calc(var(--spacing-unit) * 2);
+}
+
+/* === Buttons === */
+.btn {
+  display: inline-block;
+  padding: calc(var(--spacing-unit) * 0.65) calc(var(--spacing-unit) * 1.5);
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition-std);
+  text-align: center;
+  line-height: 1.5;
+  box-shadow: var(--box-shadow-sm);
+}
+
+.btn:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: var(--box-shadow);
+}
+
+.btn-primary {
+  background-color: var(--primary-color); /* Yellow */
+  color: var(--primary-button-text); /* Dark text for contrast */
+  border-color: var(--primary-color); /* Yellow */
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark); /* Darker Yellow */
+  border-color: var(--primary-dark); /* Darker Yellow */
+  color: var(--primary-button-text); /* Dark text */
+}
+
+.btn-secondary {
+  background-color: var(--card-bg); /* Darker Gray */
+  color: var(--dark-text); /* Light Text */
+  border-color: var(--border-color); /* Lighter Dark Gray */
+}
+
+.btn-secondary:hover {
+  background-color: #374151; /* Gray-700 - Slightly lighter than card-bg */
+  border-color: var(--secondary-color); /* Lighter Gray border */
+  color: var(--dark-text); /* Light Text */
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: var(--light-text);
+  border-color: var(--danger-color);
+}
+
+.btn-danger:hover {
+  background-color: #CC2525; /* Darker red */
+  border-color: #CC2525;
+  color: var(--light-text);
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+/* === Forms === */
+.form-group {
+  margin-bottom: calc(var(--spacing-unit) * 1.25);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: calc(var(--spacing-unit) * 0.4);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: calc(var(--spacing-unit) * 0.8) var(--spacing-unit);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--dark-text); /* Light text */
+  background-color: var(--card-bg); /* Darker gray */
+  background-clip: padding-box;
+  border: 1px solid var(--border-color); /* Lighter dark gray border */
+  border-radius: var(--border-radius);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: var(--box-shadow-sm);
+}
+
+.form-control:focus {
+  color: var(--dark-text); /* Light text */
+  background-color: var(--card-bg); /* Darker gray */
+  border-color: var(--primary-color); /* Yellow border */
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(245, 158, 11, 0.25); /* Yellow focus ring (Amber-500 with alpha) */
+}
+
+select.form-control {
+  appearance: none; /* For custom arrow later if needed */
+}
+
+/* === Cards === */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-bottom: calc(var(--spacing-unit) * 1.5);
+  padding: calc(var(--spacing-unit) * 1.5);
+}
+
+/* === Alerts === */
+.alert {
+  padding: var(--spacing-unit);
+  margin-bottom: var(--spacing-unit);
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  font-size: 0.95rem;
+}
+
+/* Adjust alert colors for dark theme */
+.alert-danger {
+  color: #FCA5A5; /* Lighter Red text (Red-400) */
+  background-color: #7F1D1D; /* Darker Red background (Red-900) */
+  border-color: #B91C1C; /* Red-800 border */
+}
+
+.alert-success {
+  color: #6EE7B7; /* Lighter Green text (Emerald-300) */
+  background-color: #064E3B; /* Darker Green background (Emerald-900) */
+  border-color: #059669; /* Emerald-700 border */
+}
+
+/* === Badges === */
+.badge {
+  display: inline-block;
+  padding: 0.3em 0.6em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: calc(var(--border-radius) * 0.5);
+}
+
+/* Adjust badge colors for dark theme */
+.badge-primary { background-color: var(--primary-color); color: var(--primary-button-text); } /* Yellow bg, dark text */
+.badge-success { background-color: var(--success-color); color: #ffffff; } /* Green bg, white text */
+.badge-danger { background-color: var(--danger-color); color: #ffffff; } /* Red bg, white text */
+.badge-secondary { background-color: var(--secondary-color); color: #1F2937; } /* Gray bg, dark text */
+.badge-warning { background-color: #F59E0B; color: var(--primary-button-text); } /* Amber-500 bg, dark text */
+
+/* === Animations === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* === Loading === */
+.loading {
+  text-align: center;
+  padding: calc(var(--spacing-unit) * 3);
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+}
+
+/* === Shared Auth Page Styles === */
+.auth-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--light-bg); /* Dark background */
+  padding: calc(var(--spacing-unit) * 2);
+  padding-top: calc(var(--navbar-height) + var(--spacing-unit) * 2);
+  box-sizing: border-box; /* Ensure padding is included in height */
+}
+
+.auth-container {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  margin: var(--spacing-unit) auto;
+  background-color: var(--card-bg); /* Darker gray card */
+  border-radius: var(--border-radius);
+  /* Adjust shadow for dark theme if needed, or keep as is */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  animation: fadeIn 0.6s ease-out;
+  min-height: 600px; /* Set a minimum height for the entire auth container */
+}
+
+/* Left Side - Visual/Branding */
+.auth-visual {
+  flex: 1 1 45%;
+  /* Use a dark gradient or solid color, or keep yellow if preferred */
+  /* background: linear-gradient(135deg, #374151, #111827); */ /* Example dark gradient */
+  background: var(--primary-color); /* Keep yellow for contrast? */
+  color: var(--primary-button-text); /* Dark text if yellow bg */
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Removed padding to allow image to fill */
+  text-align: center;
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .auth-visual {
+    display: flex; /* Show visual section on large screens */
+  }
+}
+
+
+.auth-visual::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  opacity: 0.8;
+  filter: blur(10px);
+}
+
+.auth-visual img {
+  /* Make image cover the container */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the area, cropping if necessary */
+  /* Removed max-width and margin-bottom */
+}
+
+/* Remove visual-content styles as the div was removed */
+/*
+.visual-content h2 { ... }
+.visual-content p { ... }
+*/
+
+/* Right Side - Form Container */
+.auth-form-container {
+  flex: 1 1 55%; /* Adjust flex basis */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: calc(var(--spacing-unit) * 2.5) calc(var(--spacing-unit) * 3); /* Adjust padding */
+  /* Removed min-height from form container */
+}
+
+@media (max-width: 991px) {
+  .auth-form-container {
+    flex-basis: 100%; /* Take full width on smaller screens */
+     padding: calc(var(--spacing-unit) * 2);
+  }
+   .auth-container {
+     max-width: 500px; /* Limit width on smaller screens */
+   }
+}
+
+
+.form-wrapper {
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-wrapper h2 {
+  text-align: center;
+  color: var(--dark-text); /* Light text */
+  margin-bottom: calc(var(--spacing-unit) * 0.5);
+  font-size: 1.75rem;
+}
+
+.form-wrapper .subtitle {
+  text-align: center;
+  color: var(--secondary-color); /* Lighter gray */
+  margin-bottom: calc(var(--spacing-unit) * 2);
+  font-size: 1rem;
+}
+
+.auth-switch-link {
+  margin-top: calc(var(--spacing-unit) * 2);
+  color: var(--secondary-color); /* Lighter gray */
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.auth-switch-link a {
+  color: var(--primary-color); /* Yellow */
+  font-weight: 500;
+}
+
+.auth-switch-link a:hover {
+  color: var(--primary-dark); /* Darker yellow */
+}
+
+/* User Type Toggle (Common for Login/Register) */
+.user-type-toggle {
+  display: flex;
+  margin-bottom: calc(var(--spacing-unit) * 1.5);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.toggle-option {
+  flex: 1;
+  padding: calc(var(--spacing-unit) * 0.7);
+  background: var(--card-bg); /* Darker gray */
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  color: var(--secondary-color); /* Lighter gray */
+  font-weight: 500;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.toggle-option:not(:last-child) {
+  border-right: 1px solid var(--border-color);
+}
+
+.toggle-option.active {
+  background: var(--primary-color); /* Yellow */
+  color: var(--primary-button-text); /* Dark text */
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.toggle-option:hover:not(.active) {
+  background-color: #374151; /* Gray-700 - Slightly lighter than card-bg */
+}

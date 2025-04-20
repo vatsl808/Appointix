@@ -1,0 +1,22 @@
+/* --- Login Page Specific Styles --- */
+
+/* Most styles are now inherited from the .auth-page, .auth-container,
+   .auth-visual, .auth-form-container, and .form-wrapper classes
+   defined in main.css. */
+
+/* Add any login-specific overrides here if necessary. */
+
+/* Example: Maybe slightly different text in the visual section */
+.login-page .auth-visual .visual-content h2 {
+  /* font-size: 2.1rem; */
+}
+
+/* Example: Adjust form wrapper max-width specifically for login */
+.login-page .form-wrapper {
+  /* max-width: 380px; */
+}
+
+/* LoginForm specific styles (if LoginForm component needs unique styling) */
+.login-form {
+  /* Styles for the form element itself */
+}

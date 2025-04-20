@@ -1,0 +1,46 @@
+/* Styles for the Access Denied Page */
+
+.access-denied-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: calc(100vh - var(--navbar-height)); /* Full height minus navbar */
+  background-color: var(--light-bg); /* Use main dark background */
+  color: var(--dark-text); /* Use main light text color */
+}
+
+.access-denied-container {
+  background-color: var(--card-bg); /* Use card background for the content box */
+  padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 2);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--box-shadow-lg);
+  max-width: 600px; /* Limit width */
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.access-denied-icon {
+  font-size: 4rem; /* Make icon large */
+  color: var(--primary-color); /* Use primary yellow color */
+  margin-bottom: var(--spacing-unit);
+}
+
+.access-denied-container h1 {
+  color: var(--dark-text); /* Ensure heading uses light text */
+  margin-bottom: calc(var(--spacing-unit) * 0.75);
+}
+
+.access-denied-container p {
+  color: var(--secondary-color); /* Use lighter gray for paragraph text */
+  margin-bottom: var(--spacing-unit);
+  max-width: 450px; /* Limit paragraph width for readability */
+}
+
+.access-denied-container .btn {
+  margin-top: calc(var(--spacing-unit) * 1.5);
+}

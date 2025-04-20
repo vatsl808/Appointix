@@ -1,0 +1,186 @@
+/* Doctor List Page - Complete UI Overhaul */
+.doctor-list-page {
+  padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 2);
+  max-width: 2000px;
+  margin: 0 auto;
+  min-height: calc(100vh - var(--navbar-height)); /* Adjusted min-height */
+  background-color: var(--light-bg); /* Use variable */
+  display: block;
+}
+
+.doctor-list-header {
+  text-align: center;
+  margin-top: calc(var(--spacing-unit) * 4);
+  margin-bottom: calc(var(--spacing-unit) * 4);
+}
+
+.doctor-list-header h2 {
+  font-size: 2.6rem;
+  color: var(--dark-text); /* Use variable */
+  font-weight: 700;
+  margin-bottom: calc(var(--spacing-unit) * 1);
+}
+/* Optional: Add a subtitle or search bar here if needed */
+
+.doctors-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* ✅ center horizontally */
+  gap: calc(var(--spacing-unit) * 3);
+}
+
+
+
+
+
+/* Doctor Card - Premium Redesign */
+.doctor-card {
+  width: 380px;
+  margin-bottom: calc(var(--spacing-unit) * 3);
+  background: var(--card-bg); /* Use variable */
+  border-radius: 12px;
+  /* Adjust shadow for dark theme */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color); /* Use variable */
+}
+
+.doctor-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  /* Adjust hover shadow for dark theme */
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+
+.doctor-card-image-placeholder {
+  height: 200px; /* Increased height */
+  width: 100%;
+  object-fit: cover;
+  /* Dark gradient for placeholder */
+  background: linear-gradient(45deg, var(--border-color), #4b5563); /* Gray-700 to Gray-600 */
+  display: flex; /* Use flex to center content */
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-color); /* Use variable */
+  font-size: 2.5rem; /* Adjust icon size if needed */
+}
+
+/* Style for the actual image when present */
+.doctor-card-image {
+   height: 230px; /* Increased height */
+  width: 100%;   /* Take full width of the top area */
+  object-fit: cover; /* Cover the area, cropping if needed */
+  display: block; /* Remove extra space below image */
+}
+
+.doctor-card-content {
+  padding: calc(var(--spacing-unit) * 1.5); /* was * 2 */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.doctor-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--dark-text); /* Use variable */
+  margin-bottom: calc(var(--spacing-unit) * 0.2);
+}
+
+.doctor-specialty {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: calc(var(--spacing-unit) * 0.8); /* More space below specialty */
+}
+
+.doctor-card-body {
+  flex-grow: 1;
+  margin-bottom: calc(var(--spacing-unit) * 0.25); /* Further reduced bottom margin */
+}
+.doctor-card-body p {
+  color: var(--secondary-color); /* Use variable */
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.doctor-availability {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem; /* Slightly smaller text */
+  color: var(--secondary-color); /* Lighter gray */
+  margin-top: calc(var(--spacing-unit) * 0.75); /* Space above availability */
+  flex-wrap: wrap; /* Allow wrapping if needed */
+}
+
+.availability-icon {
+  margin-right: calc(var(--spacing-unit) * 0.5);
+  color: var(--primary-color); /* Yellow icon */
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.doctor-card-footer {
+  margin-top: auto;
+  padding: calc(var(--spacing-unit) * 1.2) calc(var(--spacing-unit) * 1.5);
+  background-color: #374151; /* Use border color (Gray-700) for footer bg */
+  border-top: 1px solid var(--border-color); /* Use variable */
+}
+
+.doctor-card-footer .btn {
+  width: 100%;
+  padding: calc(var(--spacing-unit) * 0.8) 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 8px; /* Consistent button radius */
+}
+
+/* Loading/Error States */
+.loading-doctors,
+.error-doctors {
+  text-align: center;
+  padding: calc(var(--spacing-unit) * 5);
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  grid-column: 1 / -1;
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-sm);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .doctors-grid {
+    grid-template-columns: 1fr;
+  }
+   .doctor-list-page {
+     padding: calc(var(--spacing-unit) * 2);
+  }
+}
+
+
+@media (min-width: 768px) {
+  .doctors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .doctors-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1400px) {
+  .doctors-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+@media (min-width: 1800px) {
+  .doctors-grid {
+    grid-template-columns: repeat(4, 1fr); /* max 4 cards per row */
+  }
+}

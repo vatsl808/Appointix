@@ -1,0 +1,195 @@
+.navbar {
+  background-color: var(--card-bg);
+  color: var(--dark-text);
+  padding: 0 var(--spacing-unit); /* Remove vertical padding */
+  height: var(--navbar-height);
+  box-shadow: var(--box-shadow);
+  border-bottom: 1px solid var(--border-color);
+  position: fixed; /* Fix navbar to top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it's above other content */
+  display: flex; /* Use flex for alignment */
+  align-items: center; /* Vertically center items */
+}
+
+/* Modify container to span full width */
+.navbar .container {
+  display: flex;
+  /* justify-content: space-between; */ /* Remove this */
+  align-items: center;
+  width: 100%;
+  /* Explicitly override container defaults for full width */
+  max-width: none;
+  margin: 0;
+  padding-left: calc(var(--spacing-unit) * 2.5); /* Default edge padding */
+  padding-right: calc(var(--spacing-unit) * 2.5); /* Default edge padding */
+}
+
+.navbar-brand {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 1.25rem; /* Slightly larger */
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 0.5);
+}
+
+/* Restore original icon style */
+.navbar-brand .icon {
+  font-size: 1.4rem;
+  margin-bottom: -2px; /* Adjust icon alignment */
+}
+
+/* Remove styles for .navbar-logo-img and the duplicated rule/stray comment */
+
+.navbar-brand:hover {
+  color: var(--primary-dark);
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 1.5); /* Gap between items *within* the right group */
+  /* padding-left: calc(var(--spacing-unit) * 3); */ /* Remove previous padding */
+  margin-left: auto; /* Push this element to the right */
+}
+
+.nav-link {
+  color: var(--dark-text);
+  text-decoration: none;
+  font-weight: 500;
+  padding: calc(var(--spacing-unit) * 0.5) 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 0.4);
+  transition: var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+/* Optional: Underline effect on hover */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width var(--transition-std);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link .icon {
+  margin-bottom: -2px;
+  font-size: 1.1rem;
+}
+
+/* Profile Dropdown */
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-btn {
+  background: none;
+  border: none;
+  color: var(--dark-text);
+  cursor: pointer;
+  padding: calc(var(--spacing-unit) * 0.5);
+  border-radius: 50%;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.profile-btn:hover {
+  background-color: var(--border-color); /* Use border color for subtle hover */
+}
+
+.profile-btn .icon {
+  font-size: 1.3rem; /* Slightly larger profile icon */
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 5px); /* Position below button */
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-lg);
+  min-width: 180px;
+  z-index: 1010;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  padding: calc(var(--spacing-unit) * 0.5) 0; /* Add padding */
+  opacity: 0; /* Start hidden for animation */
+  transform: translateY(-10px);
+  visibility: hidden;
+  /* Apply transition on hover-in, add delay on hover-out */
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, visibility 0s linear 0.2s; /* Hide visibility instantly after delay */
+}
+
+/* Keep dropdown open when hovering the container (which includes button and menu) */
+.profile-dropdown:hover .dropdown-menu {
+  /* Apply transition instantly on hover-in, remove delay */
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, visibility 0s linear 0s; /* Show visibility instantly */
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* Optional: Keep open on focus for accessibility */
+.profile-dropdown .profile-btn:focus + .dropdown-menu {
+   opacity: 1;
+   transform: translateY(0);
+  visibility: visible;
+}
+
+
+.dropdown-item {
+  display: block;
+  padding: calc(var(--spacing-unit) * 0.6) calc(var(--spacing-unit) * 1.2);
+  color: var(--dark-text);
+  text-decoration: none;
+  transition: var(--transition-fast);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.dropdown-item:hover {
+  background: var(--border-color); /* Use border color for subtle hover */
+  color: var(--primary-color); /* Keep text color change */
+  text-decoration: none;
+}
+
+.dropdown-item.logout-btn {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  border-top: 1px solid var(--border-color);
+  color: var(--danger-color);
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: calc(var(--spacing-unit) * 0.5);
+  padding-top: calc(var(--spacing-unit) * 0.6);
+}
+
+.dropdown-item.logout-btn:hover {
+  background: rgba(239, 68, 68, 0.1); /* Light red background on hover */
+}

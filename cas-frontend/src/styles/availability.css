@@ -1,0 +1,105 @@
+/* === Availability Modal Styles === */
+
+.availability-modal-container {
+  max-width: 650px; /* Wider modal for schedule */
+}
+
+.availability-modal-body {
+  max-height: 60vh; /* Allow scrolling if needed */
+  overflow-y: auto;
+  padding-right: calc(var(--spacing-unit) * 1.5); /* Space for scrollbar */
+}
+
+.availability-day-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-unit) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+.availability-day-row:last-child {
+  border-bottom: none;
+}
+
+.day-label {
+  font-weight: 600;
+  color: var(--dark-text);
+  flex-basis: 100px; /* Fixed width for day name */
+  flex-shrink: 0;
+}
+
+.day-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-unit);
+  flex-grow: 1;
+  justify-content: flex-end; /* Align controls to the right */
+}
+
+.availability-checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--primary-color); /* Style checkbox color */
+}
+
+.availability-toggle-label {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  width: 80px; /* Fixed width for Available/Unavailable text */
+  text-align: left;
+}
+
+.time-inputs {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 0.5);
+}
+
+.time-inputs span {
+  color: var(--secondary-color);
+}
+
+/* === Styles for Native Time Input === */
+.time-input {
+  /* Inherit .form-control styles where applicable */
+  padding: calc(var(--spacing-unit) * 0.5) calc(var(--spacing-unit) * 0.75);
+  font-size: 0.9rem;
+  /* Removed max-width to allow natural sizing or control via parent */
+  background-color: var(--card-bg);
+  color: var(--dark-text);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  /* appearance: none; */ /* Keep commented out */
+  /* -webkit-appearance: none; */
+  /* -moz-appearance: none; */
+}
+
+/* Style the native picker indicator if possible */
+.time-input::-webkit-calendar-picker-indicator {
+  filter: invert(0.8); /* Make the default dark indicator lighter */
+  cursor: pointer;
+}
+
+/* Style disabled state */
+.time-input:disabled {
+  background-color: var(--border-color); /* Darker disabled background */
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Responsive adjustments if needed */
+@media (max-width: 600px) {
+  .availability-day-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: calc(var(--spacing-unit) * 0.5);
+  }
+  .day-controls {
+    width: 100%;
+    justify-content: space-between; /* Space out controls */
+  }
+  .time-inputs {
+    justify-content: flex-end; /* Align time inputs right */
+  }
+}

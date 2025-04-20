@@ -1,0 +1,210 @@
+/* === Doctor Profile Page Styles === */
+
+/* Inherits .page-container padding from main.css */
+.profile-page h1 {
+  text-align: center;
+  margin-top: calc(var(--spacing-unit) * 4); /* Add margin-top for space below navbar */
+  margin-bottom: calc(var(--spacing-unit) * 3);
+  color: var(--dark-text);
+}
+
+/* Use same section styling as dashboard */
+.profile-section {
+  background-color: var(--card-bg);
+  padding: calc(var(--spacing-unit) * 2.5);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* Match dashboard shadow */
+  border: 1px solid var(--border-color);
+  margin-bottom: calc(var(--spacing-unit) * 3);
+}
+
+/* Header Section (Pic + Basic Info) */
+.profile-header-section {
+  display: flex;
+  align-items: flex-start; /* Align items to the top */
+  gap: calc(var(--spacing-unit) * 3);
+}
+
+.profile-picture-container {
+  flex-shrink: 0;
+  width: 150px; /* Adjust size as needed */
+  text-align: center;
+}
+
+.profile-picture,
+.profile-picture-placeholder {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* Circular picture */
+  object-fit: cover; /* Ensure image covers the circle */
+  margin-bottom: calc(var(--spacing-unit) * 1);
+  border: 3px solid var(--border-color);
+  background-color: var(--border-color); /* BG for placeholder */
+}
+
+.profile-picture-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem; /* Large icon */
+  color: var(--secondary-color);
+}
+
+.upload-btn {
+  /* Inherits btn, btn-secondary, btn-sm */
+  display: block; /* Make label block to take width */
+  width: 100%;
+  margin-top: calc(var(--spacing-unit) * 0.5);
+}
+
+/* Style for the 'Upload Now' button */
+.upload-confirm-btn {
+  margin-top: calc(var(--spacing-unit) * 0.75);
+  width: 100%;
+}
+
+/* Style for upload error message */
+.profile-picture-container .text-danger {
+  font-size: 0.8rem;
+  margin-top: calc(var(--spacing-unit) * 0.5);
+}
+
+
+.profile-header-details {
+  flex-grow: 1;
+}
+
+.profile-header-details h2 {
+  margin-top: 0;
+  margin-bottom: calc(var(--spacing-unit) * 0.3);
+  color: var(--dark-text);
+  font-size: 2rem;
+}
+
+.profile-specialization {
+  color: var(--primary-color); /* Yellow */
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: calc(var(--spacing-unit) * 0.8);
+}
+
+.profile-email a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+.profile-email a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* Styles for the editable details section within the header */
+.profile-header-details .edit-section {
+  margin-top: calc(var(--spacing-unit) * 1.5); /* Add space above editable fields */
+}
+
+.profile-header-details .detail-item {
+  margin-bottom: calc(var(--spacing-unit) * 1); /* Space between phone/bio */
+}
+
+.profile-header-details .detail-item label {
+  display: block;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: calc(var(--spacing-unit) * 0.3);
+  font-size: 0.9rem;
+}
+
+.profile-header-details .detail-item p {
+  margin-bottom: 0;
+  color: var(--dark-text);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.profile-header-details .detail-item .form-control {
+  margin-top: calc(var(--spacing-unit) * 0.2);
+}
+
+/* Styles for the action buttons (Edit/Save/Cancel & Set Availability) */
+.profile-actions {
+  margin-top: calc(var(--spacing-unit) * 2); /* Space above buttons */
+  display: flex; /* Use flex to allow gap */
+  gap: var(--spacing-unit); /* Add space between buttons */
+}
+
+/* Appointment History Section Header */
+/* Use same header style as dashboard */
+.profile-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: calc(var(--spacing-unit) * 2);
+  padding-bottom: calc(var(--spacing-unit) * 1);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.profile-section-header h3 {
+  margin-bottom: 0;
+  color: var(--dark-text);
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.edit-actions {
+  display: flex;
+  gap: calc(var(--spacing-unit) * 1);
+}
+
+.profile-details .detail-item {
+  margin-bottom: calc(var(--spacing-unit) * 1.5);
+}
+
+.profile-details .detail-item label {
+  display: block;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: calc(var(--spacing-unit) * 0.3);
+  font-size: 0.9rem;
+}
+
+.profile-details .detail-item p {
+  margin-bottom: 0; /* Remove default p margin */
+  color: var(--dark-text);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.profile-details .detail-item .form-control {
+  /* Inherits base styles */
+  margin-top: calc(var(--spacing-unit) * 0.2); /* Add slight space above input */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .profile-header-section {
+    flex-direction: column; /* Stack image and details */
+    align-items: center; /* Center items when stacked */
+    text-align: center;
+  }
+
+  .profile-picture-container {
+     width: 180px; /* Slightly larger on mobile? */
+     margin-bottom: var(--spacing-unit);
+  }
+  .profile-picture,
+  .profile-picture-placeholder {
+     width: 180px;
+     height: 180px;
+  }
+
+  .profile-header-details {
+     width: 100%;
+  }
+
+  .profile-header-details h2 {
+     font-size: 1.8rem;
+  }
+  .profile-specialization {
+     font-size: 1.1rem;
+  }
+}

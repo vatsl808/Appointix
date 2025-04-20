@@ -1,0 +1,147 @@
+/* Book Appointment Page - Complete UI Overhaul */
+.book-appointment-page {
+  padding: calc(var(--spacing-unit) * 7) calc(var(--spacing-unit) * 2); /* Adjusted vertical padding */
+  max-width: 750px; /* Focused width */
+  margin: 0 auto;
+  /* Removed min-height, display:flex, flex-direction, justify-content to allow natural height */
+  background-color: var(--light-bg); /* Use variable */
+}
+
+.book-appointment-header {
+  text-align: center;
+  margin-bottom: calc(var(--spacing-unit) * 3);
+}
+
+.book-appointment-header h2 {
+  font-size: 2.4rem;
+  color: var(--dark-text); /* Use variable */
+  font-weight: 700;
+  margin-bottom: calc(var(--spacing-unit) * 0.5);
+}
+
+.book-appointment-header .doctor-info {
+  font-size: 1.2rem;
+  color: var(--secondary-color); /* Use variable */
+}
+
+.appointment-form-container {
+  background: var(--card-bg); /* Use variable */
+  padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 3.5);
+  border-radius: 12px;
+  /* Adjust shadow for dark theme */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-color); /* Use variable */
+  width: 100%;
+}
+
+.appointment-form {
+  /* Form styles inherited */
+}
+
+/* Optional: Use grid for form layout */
+.appointment-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns for date/time */
+  gap: calc(var(--spacing-unit) * 1); /* Wider gap */
+}
+
+.form-group {
+  margin-bottom: calc(var(--spacing-unit) * 0.5); /* Consistent spacing */
+}
+/* Span reason across columns if using grid */
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--dark-text); /* Use variable */
+  margin-bottom: calc(var(--spacing-unit) * 0.2);
+}
+
+.form-control {
+  width: 100%;
+  padding: calc(var(--spacing-unit) * 0.9) var(--spacing-unit);
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color); /* Use variable */
+  /* Adjust inner shadow for dark theme or remove */
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  /* Inherit color and background from main.css */
+}
+.form-control:focus {
+   border-color: var(--primary-color); /* Yellow border */
+   /* Use yellow focus ring from main.css */
+   box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.25);
+   outline: none;
+}
+textarea.form-control {
+  min-height: 80px;
+  resize: vertical;
+}
+
+
+/* Style date/time pickers */
+input[type="date"],
+input[type="time"] {
+  appearance: none;
+  background-color: var(--card-bg);
+  position: relative; /* For potential custom icon */
+}
+/* Removed custom calendar icon styling for better default dark theme compatibility */
+/*
+input[type="date"]::-webkit-calendar-picker-indicator { ... }
+*/
+
+
+.appointment-form .btn {
+  margin-top: calc(var(--spacing-unit) * 1);
+  width: 100%;
+  padding: calc(var(--spacing-unit) * 1) 0; /* Taller button */
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  grid-column: 1 / -1; /* Span full width if using grid */
+}
+
+/* Loading/Error/Success Messages */
+.appointment-message {
+  margin-top: calc(var(--spacing-unit) * 2);
+  padding: calc(var(--spacing-unit) * 1.2);
+  border-radius: var(--border-radius);
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  grid-column: 1 / -1;
+}
+
+/* Use dark theme alert styles */
+.appointment-message.success {
+  color: #6EE7B7; /* Lighter Green text (Emerald-300) */
+  background-color: #064E3B; /* Darker Green background (Emerald-900) */
+  border: 1px solid #059669; /* Emerald-700 border */
+}
+
+.appointment-message.error {
+  color: #FCA5A5; /* Lighter Red text (Red-400) */
+  background-color: #7F1D1D; /* Darker Red background (Red-900) */
+  border: 1px solid #B91C1C; /* Red-800 border */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .book-appointment-page {
+     padding: calc(var(--spacing-unit) * 2);
+     justify-content: flex-start; /* Don't force vertical center on mobile */
+  }
+  .appointment-form-container {
+     padding: calc(var(--spacing-unit) * 2.5);
+  }
+  .appointment-form-grid {
+     grid-template-columns: 1fr; /* Stack fields */
+  }
+}

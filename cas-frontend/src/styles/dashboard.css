@@ -1,0 +1,199 @@
+/* Dashboard Page - Complete UI Overhaul */
+.dashboard-page {
+  width: 100%;
+  /* Increased top padding to add space below navbar */
+  padding: calc(var(--spacing-unit) * 6) calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 3);
+  /* Increased max-width for wider layout on large screens */
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: calc(100vh - var(--navbar-height));
+  background-color: var(--light-bg); /* Use variable */
+}
+
+.dashboard-header {
+  text-align: left;
+  margin-bottom: calc(var(--spacing-unit) * 3);
+  padding-bottom: calc(var(--spacing-unit) * 1.5);
+  border-bottom: 1px solid var(--border-color); /* Use variable */
+}
+
+.dashboard-header h2 {
+  font-size: 2.4rem;
+  color: var(--dark-text); /* Use variable */
+  font-weight: 700;
+  margin: 0;
+}
+
+.dashboard-section {
+  background-color: var(--card-bg); /* Use variable */
+  padding: calc(var(--spacing-unit) * 2.5);
+  border-radius: 12px;
+  /* Adjust shadow for dark theme */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color); /* Use variable */
+  margin-bottom: calc(var(--spacing-unit) * 3);
+}
+
+/* Style for smaller buttons used in actions */
+.btn-sm {
+  padding: calc(var(--spacing-unit) * 0.4) calc(var(--spacing-unit) * 0.8);
+  font-size: 0.8rem;
+}
+
+.dashboard-section-header {
+  display: flex; /* Use flexbox for alignment */
+  justify-content: space-between; /* Push title and button apart */
+  align-items: center; /* Vertically align items */
+  margin-bottom: calc(var(--spacing-unit) * 2);
+  padding-bottom: calc(var(--spacing-unit) * 1);
+  border-bottom: 1px solid var(--border-color); /* Use variable */
+}
+
+.dashboard-section-header h3 {
+  margin-bottom: 0; /* Remove default margin */
+  color: var(--dark-text); /* Use variable */
+  font-size: 1.6rem;
+  font-weight: 600;
+  /* margin-bottom: 0; <- Already moved up */
+}
+
+/* Ensure the link button in the header doesn't have underline */
+.dashboard-section-header .btn {
+  text-decoration: none;
+}
+
+/* Appointment List - Table-like Structure */
+/* Appointment List - Using Divs now */
+.appointment-list {
+  /* list-style: none; <- No longer needed */
+  padding: 0;
+  margin: 0;
+  border: 1px solid var(--border-color); /* Use variable */
+  border-radius: var(--border-radius); /* Use variable */
+  overflow: hidden; /* Clip children to rounded corners */
+  background-color: var(--card-bg); /* Use card background */
+}
+
+.appointment-item {
+  /* background-color: #fff; <- Handled by parent */
+  border-bottom: 1px solid var(--border-color); /* Use variable */
+  padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
+  transition: background-color var(--transition-fast); /* Use variable */
+  display: grid; /* Use grid for table-like alignment */
+  /* Adjusted grid columns for better balance */
+  grid-template-columns: 2.5fr 1fr 1fr 1fr; /* Details, Date, Status, Actions */
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 1.5); /* Slightly reduced gap */
+}
+.appointment-item:last-child {
+  border-bottom: none;
+}
+
+.appointment-item:hover {
+  background-color: var(--light-bg); /* Use variable */
+}
+
+.appointment-details {
+  /* Details take first column */
+}
+
+.appointment-details .detail-row {
+  display: block; /* Stack details vertically */
+  margin-bottom: calc(var(--spacing-unit) * 0.5);
+  font-size: 0.95rem;
+}
+
+.appointment-details .detail-label {
+  font-weight: 600;
+  color: var(--dark-text); /* Use variable */
+  margin-right: calc(var(--spacing-unit) * 0.5);
+}
+
+.appointment-details .detail-value {
+  color: var(--secondary-color); /* Use variable */
+}
+
+/* Date/Time Column */
+.appointment-date-time {
+  font-size: 0.95rem;
+  color: var(--secondary-color); /* Use variable */
+  text-align: left; /* Align date left */
+}
+
+/* Status Badge Column */
+.appointment-status-wrapper {
+   text-align: center; /* Center badge */
+}
+.appointment-status {
+  font-size: 0.85rem; /* Slightly smaller */
+  padding: 0.4em 0.8em; /* Adjusted padding */
+  text-transform: capitalize;
+  font-weight: 600;
+  border-radius: 15px; /* Pill shape */
+  display: inline-block; /* Needed for centering */
+  line-height: 1.2; /* Ensure consistent height */
+}
+
+/* Actions Column */
+.appointment-actions {
+  display: flex;
+  justify-content: flex-end; /* Align actions right */
+  gap: calc(var(--spacing-unit) * 0.75);
+}
+
+.appointment-actions .btn {
+  /* Use .btn-sm styles defined above */
+}
+
+.no-appointments {
+  text-align: center;
+  padding: calc(var(--spacing-unit) * 3); /* Reduced padding */
+  color: var(--secondary-color);
+  /* background-color: #fff; <- Inherits from list now */
+  border: none; /* Remove dashed border */
+  /* border-radius: var(--border-radius); <- Inherits from list */
+  margin: 0; /* Remove margin */
+  font-size: 1rem; /* Slightly smaller */
+}
+
+/* Status-specific badge colors - Adjusted for dark theme */
+.appointment-status.status-upcoming { background-color: #374151; color: #9CA3AF; } /* Gray-700 bg, Gray-400 text */
+.appointment-status.status-completed { background-color: #064E3B; color: #6EE7B7; } /* Dark Green bg, Light Green text */
+.appointment-status.status-cancelled { background-color: #7F1D1D; color: #FCA5A5; } /* Dark Red bg, Light Red text */
+/* Add more statuses if needed */
+.appointment-status.status-pending { background-color: #78350F; color: #FCD34D; } /* Dark Amber bg, Light Amber text */
+
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .appointment-item {
+     /* Stack columns on medium screens */
+     grid-template-columns: 1fr; /* Single column */
+     gap: calc(var(--spacing-unit) * 1); /* Reduced gap */
+     padding: var(--spacing-unit); /* Adjust padding */
+  }
+  .appointment-date-time {
+    /* Display date/time within details or differently */
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-top: calc(var(--spacing-unit) * 0.5); /* Add some space */
+    text-align: left; /* Ensure left alignment */
+  }
+  .appointment-status-wrapper {
+     text-align: left; /* Align status left */
+     margin-top: calc(var(--spacing-unit) * 0.5);
+  }
+  .appointment-actions {
+     justify-content: flex-start; /* Align actions left */
+     margin-top: calc(var(--spacing-unit) * 1);
+  }
+}
+
+@media (max-width: 768px) {
+   .dashboard-page {
+     padding: calc(var(--spacing-unit) * 2);
+  }
+  .appointment-item {
+     padding: calc(var(--spacing-unit) * 1.25);
+  }
+}

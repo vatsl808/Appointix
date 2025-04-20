@@ -1,0 +1,103 @@
+/* === Modal Styles === */
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black backdrop */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050; /* Ensure modal is above navbar */
+  opacity: 0; /* Start hidden */
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.modal-backdrop.open { /* Add 'open' class when modal should be visible */
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0s linear 0s;
+}
+
+.modal-container {
+  background-color: var(--card-bg); /* Dark card background */
+  color: var(--dark-text); /* Light text */
+  padding: calc(var(--spacing-unit) * 2);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-lg);
+  border: 1px solid var(--border-color);
+  width: 90%;
+  max-width: 500px; /* Max width for the modal */
+  transform: translateY(-20px); /* Start slightly up */
+  transition: transform 0.3s ease;
+}
+
+.modal-backdrop.open .modal-container {
+  transform: translateY(0); /* Slide down effect */
+}
+
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--spacing-unit);
+  margin-bottom: var(--spacing-unit);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--dark-text);
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+  cursor: pointer;
+  padding: 0 0.5rem;
+  line-height: 1;
+  transition: color var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  color: var(--dark-text);
+}
+
+.modal-body {
+  padding-bottom: var(--spacing-unit); /* Space before footer */
+}
+
+.modal-body p {
+  margin-bottom: calc(var(--spacing-unit) * 0.5);
+  color: var(--dark-text);
+}
+.modal-body p strong {
+  color: var(--secondary-color);
+  margin-right: 0.5em;
+}
+.modal-body hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: var(--spacing-unit) 0;
+}
+
+.edit-appointment-form .form-group {
+  margin-bottom: var(--spacing-unit); /* Adjust spacing if needed */
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-unit);
+  padding-top: var(--spacing-unit);
+  margin-top: var(--spacing-unit);
+  border-top: 1px solid var(--border-color);
+}

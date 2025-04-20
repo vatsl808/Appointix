@@ -1,0 +1,47 @@
+/* --- Register Page Specific Styles --- */
+
+/* Most styles are now inherited from the .auth-page, .auth-container,
+   .auth-visual, .auth-form-container, and .form-wrapper classes
+   defined in main.css. */
+
+/* Adjust form wrapper max-width if register form needs more space */
+.register-page .form-wrapper {
+   max-width: 420px;
+}
+
+/* Vertical padding is now inherited from .auth-form-container in main.css */
+
+
+/* Styles for the RegisterForm component itself (e.g., select dropdown) */
+.register-form {
+  /* Removed padding-right */
+}
+
+.register-form .form-group select.form-control { /* Be specific */
+  /* Add custom arrow styles - Updated stroke color for dark theme */
+   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23F9FAFB' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e"); /* Changed stroke to #F9FAFB (var(--dark-text)) */
+   background-repeat: no-repeat;
+   background-position: right var(--spacing-unit) center;
+   background-size: 16px 12px;
+   appearance: none; /* Needed to show custom arrow */
+}
+
+/* Style the specialization field specifically */
+.specialization-group {
+  margin-top: calc(var(--spacing-unit) * 1.25);
+  /* Add other specific styles if needed */
+}
+
+/* Alert styles are inherited */
+.register-page .alert-danger {
+   margin-bottom: calc(var(--spacing-unit) * 1.5);
+}
+
+/* Remove scrollbar logic again - let container height be determined by content */
+/*
+.register-page .form-wrapper {
+  max-height: calc(85vh - var(--navbar-height) - 6 * var(--spacing-unit));
+  overflow-y: auto;
+  padding-right: calc(var(--spacing-unit) * 0.5);
+}
+*/
